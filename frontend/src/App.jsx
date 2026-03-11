@@ -20,6 +20,9 @@ const COLORS = [
   '#808000'  // Olive
 ];
 
+// SVG arrow for cross-browser dropdowns
+const DROPDOWN_ICON = `url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')`;
+
 export default function App() {
   const [creators, setCreators] = useState([]);
   const [trendsData, setTrendsData] = useState([]);
@@ -97,7 +100,8 @@ export default function App() {
           <select 
             value={platformFilter} 
             onChange={(e) => setPlatformFilter(e.target.value)} 
-            className="bg-transparent font-medium text-slate-700 outline-none cursor-pointer"
+            className="appearance-none bg-transparent font-medium text-slate-700 outline-none cursor-pointer pl-1 pr-6 py-1 bg-no-repeat bg-[position:right_0_center] bg-[length:1em_1em]"
+            style={{ backgroundImage: DROPDOWN_ICON }}
           >
             <option value="All">All Platforms</option>
             <option value="TikTok">TikTok</option>
@@ -180,7 +184,8 @@ export default function App() {
                 <select 
                   value={`${sortConfig.key}-${sortConfig.direction}`}
                   onChange={handleDropdownSort}
-                  className="bg-white border border-slate-300 text-slate-700 rounded-md px-3 py-1.5 outline-none cursor-pointer text-sm focus:ring-2 focus:ring-indigo-500"
+                  className="appearance-none bg-white border border-slate-300 text-slate-700 rounded-md pl-3 pr-8 py-1.5 outline-none cursor-pointer text-sm focus:ring-2 focus:ring-indigo-500 bg-no-repeat bg-[position:right_0.5rem_center] bg-[length:1em_1em]"
+                  style={{ backgroundImage: DROPDOWN_ICON }}
                 >
                   <option value="views-desc">Total Views (High to Low)</option>
                   <option value="views-asc">Total Views (Low to High)</option>
@@ -205,7 +210,8 @@ export default function App() {
                         <select 
                           value={genreFilter}
                           onChange={(e) => setGenreFilter(e.target.value)}
-                          className="mt-1 bg-white border border-slate-300 text-slate-700 rounded px-2 py-1 outline-none cursor-pointer w-max focus:ring-2 focus:ring-indigo-500 font-normal normal-case"
+                          className="appearance-none mt-1 bg-white border border-slate-300 text-slate-700 rounded pl-2 pr-7 py-1 outline-none cursor-pointer w-max focus:ring-2 focus:ring-indigo-500 font-normal normal-case bg-no-repeat bg-[position:right_0.3rem_center] bg-[length:1em_1em]"
+                          style={{ backgroundImage: DROPDOWN_ICON }}
                         >
                           <option value="All">All Genres</option>
                           {availableGenres.map(g => (

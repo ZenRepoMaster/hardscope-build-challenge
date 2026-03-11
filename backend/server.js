@@ -117,7 +117,7 @@ app.get('/api/creators', (req, res) => {
     params.push(genre);
   }
   
-  query += ' ORDER BY c.views DESC LIMIT 500';
+  query += ' ORDER BY c.views DESC';
 
   db.all(query, params, (err, rows) => {
     if (err) return res.status(500).json({ error: 'Database error' });
